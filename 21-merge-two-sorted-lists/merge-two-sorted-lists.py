@@ -16,6 +16,6 @@ class Solution:
                 list2 = list2.next
             node = node.next    
         
-        node.next = list1 if list1 else list2
+        node.next = list1 or list2
 
         return d.next
