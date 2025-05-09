@@ -1,7 +1,7 @@
 class Solution:
     def scoreOfString(self, s: str) -> int:
-        diff = []
+        summ = 0
         for i in range(len(s) - 1):
-            diff.append(abs(ord(s[i]) - ord(s[i+1])))
-        return sum(diff)
+            summ += abs(ord(s[i]) - ord(s[i+1]))
+        return summ
 
