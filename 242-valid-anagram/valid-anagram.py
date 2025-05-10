@@ -10,5 +10,7 @@ class Solution:
         return strToMap
 
     def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
         return self.counter(s) == self.counter(t)
         # return Counter(s) == Counter(t)
