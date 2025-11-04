@@ -1,16 +1,19 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        stack = []
-        pairs = {")":"(", "}":"{", "]":"["}
+        closings = {
+            "}":"{",
+            "]": "[",
+            ")": "("
+        }
 
-        for ch in s:
-            # check if closing has a corresponding opening
-            if ch in pairs:
-                # return false if stack is empty while closing OR top is not equal to an opening
-                if not stack or stack[-1] != pairs[ch]:
+        stack = []
+        for p in s:
+            if p in closings.keys():
+                if stack and stack[-1] == closings[p]:
+                    stack.pop()
+                else:
                     return False
-                stack.pop()
             else:
-                stack.append(ch)
+                stack.append(p)
         
         return not stack
